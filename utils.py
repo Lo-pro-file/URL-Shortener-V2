@@ -290,11 +290,7 @@ async def get_size(size):
 
 
 async def update_stats(m: Message, method):
-    if m.caption:
-        message = m.caption.html
-    else:
-        message = m.text.html
-
+    message = m.caption.html if m.caption else m.text.html
     mdisk_links = re.findall(
         r'https?://mdisk.me[^\s`!()\[\]{};:".,<>?«»“”‘’]+', message
     )
